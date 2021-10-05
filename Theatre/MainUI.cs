@@ -71,5 +71,31 @@ namespace Theatre
         {
             WindowState = FormWindowState.Minimized;
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            switch (((Button)sender).Text)
+            {
+                case "Home":
+                    OpenChildForm(new HomeForm(), (Button)sender);
+                    break;
+                case "Actors":
+                    OpenChildForm(new ActorForm(), (Button)sender);
+                    break;
+                case "Plays":
+                    OpenChildForm(new PlayForm(), (Button)sender);
+                    break;
+                case "Productions":
+                    OpenChildForm(new ProductionForm(), (Button)sender);
+                    break;
+            }
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.flaticon.com/");
+        }
     }
 }

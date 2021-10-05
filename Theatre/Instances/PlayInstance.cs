@@ -13,13 +13,15 @@ namespace Theatre.Instances
         public DateTime PlayDate { get; set; }
         public int Participate { get; set; }
         public int Production_ID { get; set; }
+        public string Description { get; set; }
 
-        public PlayInstance(int ID, DateTime PlayDate, int Participate, int Production_ID)
+        public PlayInstance(int ID, DateTime PlayDate, int Participate, int Production_ID, string Description)
         {
             this.ID = ID;
             this.PlayDate = PlayDate;
             this.Participate = Participate;
             this.Production_ID = Production_ID;
+            this.Description = Description;
         }
 
     }

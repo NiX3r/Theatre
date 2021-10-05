@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Theatre.Instances;
 
 namespace Theatre.Utils
 {
@@ -12,19 +13,12 @@ namespace Theatre.Utils
 
         public static string GetMySqlConnectionString()
         {
-
             StreamReader sr = new StreamReader("mysql.txt");
-
             if (!sr.EndOfStream)
-            {
-
                 return sr.ReadLine();
-
-            }
-
             return "";
-
         }
+
 
     }
 }

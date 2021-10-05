@@ -18,7 +18,7 @@ namespace Theatre
             ProgramVariables.InitializeProgramVariables();
 
             // try to open mysql connection
-            if (!DatabaseClass.OpenConnection())
+            if (DatabaseClass.OpenConnection())
                 DatabaseClass.LoadDataIntoCache();
             else
                 Application.Exit();
