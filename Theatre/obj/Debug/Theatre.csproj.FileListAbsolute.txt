@@ -1,0 +1,9 @@
+D:\Programmin\C#\Theatre\Theatre\Theatre\obj\Debug\Theatre.csprojAssemblyReference.cache
+D:\Programmin\C#\Theatre\Theatre\Theatre\obj\Debug\Theatre.Forms.ActorForm.resources
+D:\Programmin\C#\Theatre\Theatre\Theatre\obj\Debug\Theatre.Forms.HomeForm.resources
+D:\Programmin\C#\Theatre\Theatre\Theatre\obj\Debug\Theatre.Forms.PlayForm.resources
+D:\Programmin\C#\Theatre\Theatre\Theatre\obj\Debug\Theatre.Forms.ProductionForm.resources
+D:\Programmin\C#\Theatre\Theatre\Theatre\obj\Debug\Theatre.MainUI.resources
+D:\Programmin\C#\Theatre\Theatre\Theatre\obj\Debug\Theatre.Properties.Resources.resources
+D:\Programmin\C#\Theatre\Theatre\Theatre\obj\Debug\Theatre.csproj.GenerateResource.cache
+D:\Programmin\C#\Theatre\Theatre\Theatre\obj\Debug\Theatre.csproj.CoreCompileInputs.cache

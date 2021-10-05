@@ -184,8 +184,8 @@ namespace Theatre.Forms
             // 
             // pictureBox4
             // 
-            this.pictureBox4.ImageLocation = "https://img-premium.flaticon.com/png/512/200/premium/200941.png?token=exp=1633439" +
-    "247~hmac=dbf8a5a21e1836a4051f19b962c5acb0";
+            this.pictureBox4.ImageLocation = "https://img-premium.flaticon.com/png/512/200/premium/200941.png?token=exp=1633454" +
+    "065~hmac=d452afee2c3901d0c9db40d5fad4af59";
             this.pictureBox4.Location = new System.Drawing.Point(451, 32);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(56, 56);
