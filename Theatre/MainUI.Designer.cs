@@ -39,11 +39,11 @@ namespace Theatre
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.SubFormPanel = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -180,6 +180,18 @@ namespace Theatre
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(600, 35);
             this.panel2.TabIndex = 1;
+            this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pictureBox2.ImageLocation = "https://cdn-icons-png.flaticon.com/512/4478/4478874.png";
+            this.pictureBox2.Location = new System.Drawing.Point(495, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
             // 
             // label3
             // 
@@ -205,6 +217,7 @@ namespace Theatre
             this.button2.TabIndex = 3;
             this.button2.Text = "_";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -219,25 +232,15 @@ namespace Theatre
             this.button1.TabIndex = 2;
             this.button1.Text = "X";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // panel4
+            // SubFormPanel
             // 
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(200, 35);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(600, 465);
-            this.panel4.TabIndex = 2;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pictureBox2.ImageLocation = "https://cdn-icons-png.flaticon.com/512/4478/4478874.png";
-            this.pictureBox2.Location = new System.Drawing.Point(495, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(35, 35);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
+            this.SubFormPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SubFormPanel.Location = new System.Drawing.Point(200, 35);
+            this.SubFormPanel.Name = "SubFormPanel";
+            this.SubFormPanel.Size = new System.Drawing.Size(600, 465);
+            this.SubFormPanel.TabIndex = 2;
             // 
             // MainUI
             // 
@@ -245,7 +248,7 @@ namespace Theatre
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.ClientSize = new System.Drawing.Size(800, 500);
-            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.SubFormPanel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -277,7 +280,7 @@ namespace Theatre
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel SubFormPanel;
         private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
