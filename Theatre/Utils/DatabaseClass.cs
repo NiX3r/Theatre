@@ -63,8 +63,20 @@ namespace Theatre.Utils
         {
             var command = new MySqlCommand($"INSERT INTO Actor(Fullname, Sex, Email, Phone, Salary) VALUES('{fullname}', '{sex}', '{email}', '{phone}', {salary});", ProgramVariables.Connection);
             command.ExecuteNonQuery();
-            command = new MySqlCommand($"SELECT ID FROM Actor WHERE Fullname='{fullname}' AND Sex='{sex}' AND Email='{email}' AND Phone='{phone}' AND Salary={salary}", ProgramVariables.Connection);
+            command = new MySqlCommand($"SELECT ID FROM Actor WHERE Fullname='{fullname}' AND Sex='{sex}' AND Email='{email}' AND Phone='{phone}' AND Salary={salary};", ProgramVariables.Connection);
             var reader = command.ExecuteReader(); 
+            reader.Read();
+            int id = reader.GetInt32(0);
+            reader.Close();
+            return id;
+        }
+
+        public static int AddProduction(string name, string author, DateTime premier, DateTime denier)
+        {
+            var command = new MySqlCommand($"INSERT INTO Production(Name, Author, PremierDate, DenierDate) VALUES('{name}', '{author}', '{premier.ToString("yyyy-MM-dd HH:mm:ss")}', '{denier.ToString("yyyy-MM-dd HH:mm:ss")}');", ProgramVariables.Connection);
+            command.ExecuteNonQuery();
+            command = new MySqlCommand($"SELECT ID FROM Production WHERE Name='{name}' AND Author='{author}' AND PremierDate='{premier.ToString("yyyy-MM-dd HH:mm:ss")}' AND DenierDate='{denier.ToString("yyyy-MM-dd HH:mm:ss")}';", ProgramVariables.Connection);
+            var reader = command.ExecuteReader();
             reader.Read();
             int id = reader.GetInt32(0);
             reader.Close();

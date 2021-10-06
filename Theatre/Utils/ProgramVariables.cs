@@ -38,7 +38,17 @@ namespace Theatre.Utils
             return false;
         }
 
-        public static List<ActorInstance> GetActors(String fullname, char sex, String email, String phone, double salary)
+        public static bool CheckProductionExists(string name)
+        {
+            foreach(ProductionInstance product in Productions)
+            {
+                if (product.Name.Equals(name))
+                    return true;
+            }
+            return false;
+        }
+
+        public static List<ActorInstance> GetActors(string fullname, char sex, string email, string phone, double salary)
         {
 
             List<ActorInstance> output = new List<ActorInstance>();
@@ -49,38 +59,55 @@ namespace Theatre.Utils
                 bool valid = false;
 
                 if (fullname != "")
-                    if (actor.Fullname.Contains(fullname))
-                        valid = true;
-                    else
+                    if (!actor.Fullname.Contains(fullname))
                         valid = false;
                 if (email != "")
-                    if (actor.Email.Contains(email))
-                        valid = true;
-                    else
+                    if (!actor.Email.Contains(email))
                         valid = false;
                 if (sex != ' ')
-                    if (actor.Sex.Equals(sex))
-                        valid = true;
-                    else
+                    if (!actor.Sex.Equals(sex))
                         valid = false;
                 if (phone != "")
                     if (actor.Phone.Contains(phone))
-                        valid = true;
-                    else
                         valid = false;
                 if (salary != -1.0)
-                    if (actor.Salary == (salary))
-                        valid = true;
-                    else
+                    if (actor.Salary != (salary))
                         valid = false;
 
-                if (valid)
+                if(valid)
                     output.Add(actor);
 
             }
 
             return output;
 
+        }
+
+        public static List<ProductionInstance> GetProductions(string name, string author, DateTime premier, DateTime denier, bool searchByDate)
+        {
+            List<ProductionInstance> output = new List<ProductionInstance>();
+
+            foreach (ProductionInstance product in Productions)
+            {
+
+                bool valid = false;
+
+                if (name != "")
+                    if (!product.Name.Contains(name))
+                        valid = false;
+                if (author != "")
+                    if (!product.Author.Contains(author))
+                        valid = false;
+                if (searchByDate)
+                    if (!product.Premier.Equals(premier) && product.Denier.Equals(denier))
+                        valid = false;
+
+                if(valid)
+                    output.Add(product);
+
+            }
+
+            return output;
         }
 
         public static void RemoveActor(int ID)
