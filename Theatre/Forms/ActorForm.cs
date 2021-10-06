@@ -43,6 +43,7 @@ namespace Theatre.Forms
                     char sex = Convert.ToChar(textBox5.Text);
                     double salary = Convert.ToDouble(textBox4.Text);
                     int ID = DatabaseClass.AddActor(fullname, sex, email, phone, salary);
+                    selectedID = ID;
                     ActorInstance actor = new ActorInstance(ID, fullname, sex, email, phone, salary);
                     ProgramVariables.Actors.Add(actor);
                     MessageBox.Show("Actor successfully created!");

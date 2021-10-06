@@ -39,6 +39,7 @@ namespace Theatre.Forms
                     DateTime premier = dateTimePicker1.Value, denier = dateTimePicker2.Value;
 
                     int ID = DatabaseClass.AddProduction(name, author, premier, denier, description);
+                    selectedID = ID;
 
                     ProductionInstance product = new ProductionInstance(ID, name, author, premier, denier, description);
                     ProgramVariables.Productions.Add(product);
@@ -118,11 +119,11 @@ namespace Theatre.Forms
 
                 DatabaseClass.UpdateProduction(selectedID, textBox2.Text, textBox3.Text, dateTimePicker1.Value, dateTimePicker2.Value, richTextBox1.Text);
                 ProgramVariables.UpdateProduction(selectedID, textBox2.Text, textBox3.Text, dateTimePicker1.Value, dateTimePicker2.Value, richTextBox1.Text);
-                MessageBox.Show("You successfully updated actor");
+                MessageBox.Show("You successfully updated production");
 
             }
             else
-                MessageBox.Show("You do not have selected actor");
+                MessageBox.Show("You do not have selected production");
         }
     }
 }

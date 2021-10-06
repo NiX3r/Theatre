@@ -48,6 +48,36 @@ namespace Theatre.Utils
             return false;
         }
 
+        public static bool CheckPlayExists(int id, DateTime playTime)
+        {
+            foreach(PlayInstance play in Plays)
+            {
+                if (play.ID == id && play.PlayDate.Equals(playTime))
+                    return true;
+            }
+            return false;
+        }
+
+        public static int GetProductionID(string name)
+        {
+            foreach(ProductionInstance production in Productions)
+            {
+                if (production.Name.Equals(name))
+                    return production.ID;
+            }
+            return -1;
+        }
+
+        public static string GetProductionName(int id)
+        {
+            foreach (ProductionInstance production in Productions)
+            {
+                if (production.ID.Equals(id))
+                    return production.Name;
+            }
+            return null;
+        }
+
         public static List<ActorInstance> GetActors(string fullname, char sex, string email, string phone, double salary)
         {
 
@@ -110,6 +140,35 @@ namespace Theatre.Utils
             return output;
         }
 
+        public static List<PlayInstance> GetPlays(DateTime playTime, int participate, int production_id, bool searchByDate)
+        {
+
+            List<PlayInstance> output = new List<PlayInstance>();
+
+            foreach(PlayInstance play in Plays)
+            {
+
+                bool valid = true;
+
+                if (searchByDate)
+                    if (!play.PlayDate.Equals(playTime))
+                        valid = false;
+                if (participate >= 0)
+                    if (play.Participate != participate)
+                        valid = false;
+                if (production_id >= 0)
+                    if (play.Production_ID != production_id)
+                        valid = false;
+
+                if (valid)
+                    output.Add(play);
+
+            }
+
+            return output;
+
+        }
+
         public static void RemoveActor(int ID)
         {
             foreach (ActorInstance actor in Actors)
@@ -129,6 +188,18 @@ namespace Theatre.Utils
                 if(product.ID == ID)
                 {
                     Productions.Remove(product);
+                    return;
+                }
+            }
+        }
+
+        public static void RemovePlay(int ID)
+        {
+            foreach (PlayInstance play in Plays)
+            {
+                if (play.ID == ID)
+                {
+                    Plays.Remove(play);
                     return;
                 }
             }
@@ -166,6 +237,20 @@ namespace Theatre.Utils
                 }
             }
 
+        }
+
+        public static void UpdatePlay(int ID, DateTime playDate, int participate, int production_id)
+        {
+            foreach (PlayInstance play in Plays) {
+
+                if (play.ID == ID)
+                {
+                    play.PlayDate = playDate;
+                    play.Participate = participate;
+                    play.Production_ID = production_id;
+                }
+
+            }
         }
 
     }
