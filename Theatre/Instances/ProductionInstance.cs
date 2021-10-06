@@ -14,14 +14,16 @@ namespace Theatre.Instances
         public string Author { get; set; }
         public DateTime Premier { get; set; }
         public DateTime Denier { get; set; }
+        public string Description { get; set; }
 
-        public ProductionInstance(int ID, string Name, string Author, DateTime Premier, DateTime Denier)
+        public ProductionInstance(int ID, string Name, string Author, DateTime Premier, DateTime Denier, string Description)
         {
             this.ID = ID;
             this.Name = Name;
             this.Author = Author;
             this.Premier = Premier;
             this.Denier = Denier;
+            this.Description = Description;
         }
 
     }

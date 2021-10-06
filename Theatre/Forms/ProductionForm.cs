@@ -38,9 +38,9 @@ namespace Theatre.Forms
                     string description = richTextBox1.Text;
                     DateTime premier = dateTimePicker1.Value, denier = dateTimePicker2.Value;
 
-                    int ID = DatabaseClass.AddProduction(name, author, premier, denier);
+                    int ID = DatabaseClass.AddProduction(name, author, premier, denier, description);
 
-                    ProductionInstance product = new ProductionInstance(ID, name, author, premier, denier);
+                    ProductionInstance product = new ProductionInstance(ID, name, author, premier, denier, description);
                     ProgramVariables.Productions.Add(product);
 
                     MessageBox.Show("Production successfully created!");
@@ -72,6 +72,7 @@ namespace Theatre.Forms
                     selectedID = productions[0].ID;
                     textBox2.Text = productions[0].Name;
                     textBox3.Text = productions[0].Author;
+                    richTextBox1.Text = productions[0].Description;
                     dateTimePicker1.Value = productions[0].Premier;
                     dateTimePicker2.Value = productions[0].Denier;
                 }
@@ -91,6 +92,37 @@ namespace Theatre.Forms
             else
                 MessageBox.Show("Minimum one parameter is needed!");
 
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+            if (selectedID != -1)
+            {
+
+                DatabaseClass.RemoveProduction(selectedID);
+                ProgramVariables.RemoveProduction(selectedID);
+                textBox2.Text = textBox3.Text = richTextBox1.Text = "";
+                MessageBox.Show("You successfully removed production!");
+
+            }
+            else
+                MessageBox.Show("You have to select production!");
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            if (selectedID != -1)
+            {
+
+                DatabaseClass.UpdateProduction(selectedID, textBox2.Text, textBox3.Text, dateTimePicker1.Value, dateTimePicker2.Value, richTextBox1.Text);
+                ProgramVariables.UpdateProduction(selectedID, textBox2.Text, textBox3.Text, dateTimePicker1.Value, dateTimePicker2.Value, richTextBox1.Text);
+                MessageBox.Show("You successfully updated actor");
+
+            }
+            else
+                MessageBox.Show("You do not have selected actor");
         }
     }
 }

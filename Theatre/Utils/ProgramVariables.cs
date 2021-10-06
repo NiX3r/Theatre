@@ -56,7 +56,7 @@ namespace Theatre.Utils
             foreach(ActorInstance actor in Actors)
             {
 
-                bool valid = false;
+                bool valid = true;
 
                 if (fullname != "")
                     if (!actor.Fullname.Contains(fullname))
@@ -90,7 +90,7 @@ namespace Theatre.Utils
             foreach (ProductionInstance product in Productions)
             {
 
-                bool valid = false;
+                bool valid = true;
 
                 if (name != "")
                     if (!product.Name.Contains(name))
@@ -122,7 +122,19 @@ namespace Theatre.Utils
             }
         }
 
-        public static void UpdateActor(int ID, String fullname, char sex, String email, String phone, double salary)
+        public static void RemoveProduction(int ID)
+        {
+            foreach(ProductionInstance product in Productions)
+            {
+                if(product.ID == ID)
+                {
+                    Productions.Remove(product);
+                    return;
+                }
+            }
+        }
+
+        public static void UpdateActor(int ID, string fullname, char sex, string email, string phone, double salary)
         {
             foreach (ActorInstance actor in Actors)
             {
@@ -136,6 +148,24 @@ namespace Theatre.Utils
                     return;
                 }
             }
+        }
+
+        public static void UpdateProduction(int ID, string name, string author, DateTime premier, DateTime denier, string description)
+        {
+
+            foreach(ProductionInstance production in Productions)
+            {
+                if(production.ID == ID)
+                {
+                    production.Name = name;
+                    production.Author = author;
+                    production.Premier = premier;
+                    production.Denier = denier;
+                    production.Description = description;
+                    return;
+                }
+            }
+
         }
 
     }
